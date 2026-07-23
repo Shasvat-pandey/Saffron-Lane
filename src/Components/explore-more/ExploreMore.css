@@ -1,0 +1,77 @@
+/* Styles for the ExploreMore page */
+.explore-more.container {
+    padding: 7rem 1.5rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgb(209, 178, 135);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.border{
+    border: 1px solid #797979;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #fff8dc;
+    border-radius: 8px;
+}
+
+/* organized layout for the backyard image */
+.explore-more.container img {
+  display: block;
+  margin: 1rem auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Gallery: align multiple views in a row */
+.explore-more.container .gallery{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.explore-more.container .gallery .gallery-item{
+    flex: 0 1 calc(25% - 0.75rem);
+    text-align: center;
+}
+.explore-more.container .gallery .gallery-item img{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+.explore-more.container .gallery .gallery-item h1{
+    font-size: 1rem;
+    margin: 0.5rem 0 0;
+    color: #333;
+}
+
+/* ------------media query------------------*/
+
+@media(max-width : 600px){
+    .footer{
+        display: block;
+        text-align: center;
+    }
+    .footer ul li{
+        margin: 10px;
+    }
+    .footer ul{
+        margin-top: 10px;
+    }
+        .explore-more.container .gallery .gallery-item{
+            flex: 0 1 48%;
+            margin-bottom: 10px;
+        }
+}
+

@@ -1,0 +1,65 @@
+.hero{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* pseudo-element holds the blurred background */
+.hero::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(rgba(46, 35, 5, 0.01),rgba(48, 41, 4, 0.03)), url('../../assets/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1; /* place behind text */
+}
+
+.hero-text{
+    text-align: center;
+    max-width: 800px;
+    color: #f3bc69;
+}
+
+.hero-text h1{
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.hero-text p{
+    max-width: 700px;
+    margin: 10px auto 20px;
+    line-height: 1.4;
+}
+
+.btn.dark-btn{
+    color: black;
+}
+
+/* ------------media query------------------*/
+
+@media (max-width: 850px){
+    .hero-text h1{
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 650px){
+    .hero-text h1{
+        font-size: 30px;
+        max-width: 400px;
+        margin: auto;
+    }
+    .hero-text p{
+        font-size: 14px;
+        margin: 15px auto 30px;
+    }
+}
