@@ -15,8 +15,14 @@ const [result, setResult] = React.useState("");
     event.preventDefault();
     setResult("Sending....");
     const formData = new FormData(event.target);
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-    formData.append("access_key", "2a70bc28-4b35-4a95-9387-e0f36cd2ff44");
+    if (!accessKey) {
+      setResult("Contact form is not configured yet.");
+      return;
+    }
+
+    formData.append("access_key", accessKey);
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",

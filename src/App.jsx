@@ -1,5 +1,6 @@
-import React, { useState } from "react"
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import React, { useState, useEffect } from "react"
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { scroller } from 'react-scroll'
 import Navbar from "./Components/Navbar/Navbar.jsx"
 import Hero from "./Components/Hero/Hero.jsx"
 import Programs from "./Components/Programs/programs.jsx"
@@ -13,6 +14,26 @@ import VideoPlayer from "./Components/VideoPlayer/VideoPlayer.jsx"
 import ExploreMore from "./Components/explore-more/ExploreMore.jsx"
 
 const HomePage = ({ playerState, setPlayerState }) => {
+  const location = useLocation();
+
+  // Automatically scroll to section if user navigated from another page
+  useEffect(() => {
+    if (location.state && location.state.targetSection) {
+      const target = location.state.targetSection;
+      
+      // Calculate offset based on section
+      let sectionOffset = -260;
+      if (target === 'hero') sectionOffset = 0;
+      if (target === 'about') sectionOffset = -150;
+
+      scroller.scrollTo(target, {
+        duration: 500,
+        smooth: true,
+        offset: sectionOffset,
+      });
+    }
+  }, [location]);
+
   return (
     <div>
       <Navbar />
@@ -24,7 +45,7 @@ const HomePage = ({ playerState, setPlayerState }) => {
         <Title subTitle='Gallery' title='Campus Photos'/>
         <Campus/>
         <Title subTitle='Testimonials' title='What People Says'/>
-         <Testimonials/>
+        <Testimonials/>
         <Title subTitle='Contact Us' title='Get in Touch With Us'/>
         <Contact/>
         <Footer/>
@@ -35,7 +56,6 @@ const HomePage = ({ playerState, setPlayerState }) => {
 }
 
 const App = () => {
-
   const [playerState, setPlayerState] = useState(false);
 
   return (
