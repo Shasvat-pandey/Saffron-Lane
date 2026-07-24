@@ -1,29 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Outfit", sans-serif;
 }
 
-body{
+/* Global anti-overflow rules to keep content locked inside the screen */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* Prevents any element from creating right-side pink gaps or scrolling */
   background: #f5f5f5;
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
   line-height: 1;
   cursor: pointer;
 }
 
-.btn{
+.btn {
   background: rgb(255, 179, 71);
   color: #212121;
   padding: 14px 25px;
   font-size: 16px;
-  border-radius : 30px;
+  border-radius: 30px;
   cursor: pointer;
   border: 0;
   outline: 0; 
@@ -32,23 +36,20 @@ a{
   justify-content: center;
 }
 
-.btn img{
+.btn img {
   width: 20px;
   margin-left: 10px;
 }
 
-.btn.dark-btn{
+.btn.dark-btn {
   background: #f3bc69;
   color: #fff;
 }
 
+/* ------------ Media Query ------------------*/
 
-
-
-/* ------------media query------------------*/
-
-@media(max-width: 1200px){
-  .btn{
+@media (max-width: 1200px) {
+  .btn {
     padding: 14px 22px;
   }
 }

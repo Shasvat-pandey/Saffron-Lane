@@ -1,29 +1,52 @@
-.campus{
-    margin: 80px auto;
+.campus {
+    margin: 100px;
     width: 90%;
+    max-width: 1200px; /* Constrains total width to match other sections */
     text-align: center;
+    box-sizing: border-box;
 }
 
-.gallery{
+.gallery {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
+    align-items: center;
+    gap: 20px; /* Reduced gap to fit screen width comfortably */
+    width: 100%; 
+    margin-bottom: 25px;
+    box-sizing: border-box;
 }
 
-.gallery img{
-    width: 23%;
-    border-radius: 10px;
+.gallery img {
+    flex: 1 1 0;      /* Allows images to shrink & grow equally without overflowing */
+    width: 100%;      /* Scales smoothly to parent column */
+    max-width: 100%;
+    height: 450px;    /* Uniform height */
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-/* ------------media query------------------*/
+/* ------------ Media Queries ------------------*/
 
-@media (max-width : 800px){
-    .gallery{
-        flex-wrap: wrap;
+@media (max-width: 800px) {
+    .campus {
+        margin: 50px auto;
+        width: 95%;
     }
-    .gallery img{
-        width: 48%;
-        margin-bottom: 25px;
+
+    .gallery {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .gallery img {
+        flex: 1 1 calc(50% - 10px); /* 2 images per row on tablet/small screens */
+        height: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery img {
+        flex: 1 1 100%; /* Stacks 1 image per row on mobile */
+        height: 220px;
     }
 }
