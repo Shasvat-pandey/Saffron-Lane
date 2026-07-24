@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import logo from '../../assets/logo.png'
 import menu_icon from '../../assets/menu-icon.png'
-import { Link as ScrollLink } from 'react-scroll'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll' // 1. Added animateScroll
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
@@ -24,17 +24,34 @@ const Navbar = () => {
     setMobilemenu(!mobilemenu);
   };
 
-  // Helper function to handle section clicks from non-home pages
   const handleSectionClick = (sectionTarget) => {
     if (location.pathname !== '/') {
-      // If we are on /explore-more or any other page, navigate to home and pass target section state
       navigate('/', { state: { targetSection: sectionTarget } });
+    }
+  };
+
+  // Dedicated function for logo click
+  const handleLogoClick = (e) => {
+    if (location.pathname === '/') {
+      // On home page: smooth scroll to top (hero section)
+      e.preventDefault();
+      scroll.scrollToTop({
+        duration: 500,
+        smooth: 'easeInOutQuart',
+      });
+    } else {
+      // On another page: navigate to home with 'hero' target
+      handleSectionClick('hero');
     }
   };
 
   return (
     <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
-      <img src={logo} alt="Logo" className="logo" />
+      {/* 2. Connected handleLogoClick here */}
+      <Link to="/" onClick={handleLogoClick}>
+        <img src={logo} alt="Saffron Lane Logo" className="logo" />
+      </Link>
+
       <ul className={mobilemenu ? '' : 'hide-mobile-menu'}>
         <li>
           <ScrollLink 
