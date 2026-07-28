@@ -10,8 +10,9 @@ import Campus from "./Components/Campus/Campus.jsx"
 import Testimonials from "./Components/Testimonials/Testimonials.jsx"
 import Contact from "./Components/Contact/Contact.jsx"
 import Footer from "./Components/Footer/Footer.jsx"
-import VideoPlayer from "./Components/VideoPlayer/VideoPlayer.jsx"
 import ExploreMore from "./Components/explore-more/ExploreMore.jsx"
+import Reservation from './components/Contact/Reservation.jsx';
+import WriteToUs from './Components/Contact/writetous.jsx';
 
 const HomePage = ({ playerState, setPlayerState }) => {
   const location = useLocation();
@@ -39,18 +40,16 @@ const HomePage = ({ playerState, setPlayerState }) => {
       <Navbar />
       <Hero/>
       <div className="container">
-        <Title subTitle='Our Programs' title='What We Offer'/>
+        <Title subTitle='Our Offering' title='What We Serve'/>
         <Programs/>
         <About setPlayerState={setPlayerState}/>
-        <Title subTitle='Gallery' title='Campus Photos'/>
+        <Title subTitle='Gallery' title='Inside the House'/>
         <Campus/>
         <Title subTitle='Testimonials' title='What People Says'/>
         <Testimonials/>
-        <Title subTitle='Contact Us' title='Get in Touch With Us'/>
         <Contact/>
         <Footer/>
       </div>
-      <VideoPlayer playerState={playerState} setPlayerState={setPlayerState}/>
     </div>
   )
 }
@@ -63,6 +62,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage playerState={playerState} setPlayerState={setPlayerState} />} />
         <Route path="/explore-more" element={<ExploreMore />} />
+        <Route path="/reservation" element={<Reservation />} />
+        <Route path="/write-to-us" element={<WriteToUs />} />
       </Routes>
     </Router>
   )

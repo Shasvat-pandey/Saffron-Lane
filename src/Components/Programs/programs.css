@@ -1,56 +1,106 @@
-.programs{
-    margin: 80px auto;
+/* If your Programs section is wrapped in a container, apply this deep brown background */
+.programs-container { 
+    background-color: #0f0a06; /* Deep espresso brown from the image */
+    padding-bottom: 80px;
+}
+
+.programs {
+    margin: 0 auto;
     width: 90%;
+    max-width: 1100px;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
+    gap: 30px;
 }
 
-.program img{
-    width: 100%;
-    border-radius: 10px;
-    display: block;
-}
-
-.program{
-    flex-basis: 31%;
-    position: relative;
-}
-
-.caption{
-    border-radius: 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: #f3bc69;
+.program-card {
+    flex: 1 1 31%;
+    border: 1px solid rgba(201, 147, 59, 0.15); /* Faint antique gold border */
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    cursor: pointer;
-    opacity: 0;
-    padding-top: 70%;
-    transition: 0.4s;
+    background-color: #0f0a06; /* Matches the deep brown background */
+    transition: border-color 0.4s ease;
 }
 
-.caption img{
-    width: 60px;
+.program-card:hover {
+    border-color: rgba(201, 147, 59, 0.5); /* Brighter gold on hover */
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+}
+
+.img-container img {
+    width: 100%;
+    display: block;
+    border-radius: 0; 
+    object-fit: cover;
+    aspect-ratio: 4/5; 
+    border-bottom: 1px solid rgba(201, 147, 59, 0.15); /* Separator line */
+}
+
+.step-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #c9933b; /* Antique gold */
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.card-content {
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.card-category {
+    font-family: 'Cinzel', serif;
+    color: #c9933b; /* Antique gold */
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin-bottom: 10px;
 }
 
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    color: #f7f3ed; /* Warm off-white */
+    margin-bottom: 15px;
+}
 
+.card-desc {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    color: #9b9188; /* Warm earthy grey/brown for description text */
+    line-height: 1.7;
+    text-align: left;
+}
 
+/* ------------ Media Query ------------------*/
 
-/* ------------media query------------------*/
+@media (max-width: 900px) {
+    .programs {
+        gap: 20px;
+    }
+    .card-title {
+        font-size: 24px;
+    }
+}
 
-@media (max-width :650px){
-    .programs{
+@media (max-width: 650px) {
+    .programs {
         flex-direction: column;
     }
-    .program{
+    .program-card {
         flex-basis: 100%;
-        margin: 20px;
+        margin-bottom: 25px;
     }
 }

@@ -1,4 +1,6 @@
-.hero{
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400&display=swap');
+
+.hero {
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -6,60 +8,179 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    padding: 120px 20px 40px;
 }
 
-/* pseudo-element holds the blurred background */
-.hero::before{
+/* Thin Elegant Double Gold Frame */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    border: 1px solid rgba(243, 188, 105, 0.35); /* Outer gold border */
+    outline: 3px solid rgba(243, 188, 105, 0.15); /* Inner gold border */
+    outline-offset: -20px; /* Creates the gap by pulling the inner line inwards */
+    pointer-events: none; /* Prevents border from interfering with clicks */
+    z-index: 3; /* Sits above background overlay */
+}
+
+/* Dark Overlay on Background Image */
+.hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background:linear-gradient(rgba(46, 35, 5, 0.01),rgba(48, 41, 4, 0.03)), url('../../assets/hero.jpg');
+    background-image: 
+        linear-gradient(to bottom, rgba(8, 6, 4, 0.75), rgba(12, 10, 7, 0.88)),
+        var(--bg-img);
     background-size: cover;
     background-position: center;
-    filter: blur(5px);
-    z-index: -1; /* place behind text */
+    z-index: 1;
 }
 
-.hero-text{
+.hero-text {
+    position: relative;
+    z-index: 2;
     text-align: center;
-    max-width: 800px;
+    max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-subtitle {
+    font-family: 'Cinzel', serif;
     color: #f3bc69;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.hero-text h1{
-    font-size: 60px;
+.hero-title-italic {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 72px;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 8px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero-title-gold {
+    font-family: 'Cinzel', serif;
+    font-size: 50px;
     font-weight: 600;
+    color: #f3bc69;
+    letter-spacing: 6px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
 }
 
-.hero-text p{
-    max-width: 700px;
-    margin: 10px auto 20px;
-    line-height: 1.4;
+.hero-description {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #d1d1d1;
+    font-size: 15px;
+    font-weight: 300;
+    max-width: 620px;
+    line-height: 1.6;
+    margin-bottom: 35px;
 }
 
-.btn.dark-btn{
-    color: black;
+.hero-cta-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 45px;
 }
 
-/* ------------media query------------------*/
+.btn-gold {
+    background: #f9a200;
+    color: #000;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 16px 36px;
+    border-radius: 2px;
+    border: 1px solid #ffb347;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-@media (max-width: 850px){
-    .hero-text h1{
-        font-size: 40px;
+.btn-gold:hover {
+    background-color: transparent;
+    color: #f9a200;
+    border-color: #f9a200;
+}
+
+.btn-outline-gold {
+    background: transparent;
+    color: #f9a200;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 16px 36px;
+    border-radius: 2px;
+    border: 1px solid rgba(243, 188, 105, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+    color: #000;
+    border-color: #f9a200;
+    background: #f9a200;
+}
+
+.scroll-indicator {
+    font-family: 'Cinzel', serif;
+    color: #8a8275;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+/* ------------ Responsive Adjustments ------------------*/
+
+@media (max-width: 850px) {
+    .hero::after {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        outline-offset: -4px; /* Slightly tighter gap on mobile screens */
+    }
+    .hero-title-italic {
+        font-size: 48px;
+    }
+    .hero-title-gold {
+        font-size: 32px;
+        letter-spacing: 3px;
     }
 }
 
-@media (max-width: 650px){
-    .hero-text h1{
-        font-size: 30px;
-        max-width: 400px;
-        margin: auto;
+@media (max-width: 600px) {
+    .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
     }
-    .hero-text p{
-        font-size: 14px;
-        margin: 15px auto 30px;
+    .btn-gold, .btn-outline-gold {
+        width: 100%;
+    }
+    .hero-title-italic {
+        font-size: 36px;
+    }
+    .hero-title-gold {
+        font-size: 24px;
     }
 }

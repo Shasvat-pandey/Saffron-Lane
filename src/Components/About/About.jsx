@@ -1,22 +1,66 @@
 import React from 'react'
 import './About.css'
-import about_img from '../../Assets/about.jpg'
-import play_icon from '../../Assets/play-icon.png'
+// Make sure to put your actual video file in the assets folder!
+import about_video from '../../assets/Restro-video.mp4' 
 
-
-const About = ({ setPlayerState }) => {
+const About = () => {
   return (
-    <div className='about'>
-      <div className="about-left">
-        <img src={about_img} alt="" className='about_img' />
-        <img src={play_icon} alt="" className='play_icon' onClick={() => setPlayerState(true)}/>
-      </div>
-      <div className="about-right">
-        <h3>The Saffron Lane Philosophy</h3>
-        <h2>Where every grain tells a golden story</h2>        
-        <p>Unlike standard restaurants, Saffron Lane focuses on the origin of ingredients. Each dish is designed to take the diner down a metaphorical "lane" through the history of Asian spices—from the high altitudes of Kashmir to the lush valleys of Southeast Asia.</p>
-        <p>We specialize in "elevated vegetarianism." This means using cutting-edge techniques like molecular gastronomy or wood-fire smoking to give vegetables the depth and complexity usually reserved for gourmet meats.</p>
-        <p>The "Lane" in our name also represents our commitment to a transparent supply chain. We prioritize direct-from-farmer sourcing, ensuring that every grain and spice used is sustainable and ethically harvested</p>
+    <div className="about-wrapper">
+      <div className='about-section'>
+        
+        {/* Left Media Column */}
+        <div className="about-left">
+          <div className="media-container">
+            {/* Self-contained video player: Auto-plays, loops, and has stop/play controls */}
+            <video 
+              src={about_video} 
+              className="about-video"
+              autoPlay 
+              muted 
+              loop 
+              controls 
+            />
+            <div className="video-caption">CHEF ELENA MARCHETTI</div>
+          </div>
+        </div>
+        
+        {/* Right Content Column */}
+        <div className="about-right">
+          <h3 className="about-subtitle">THE SAFFRON LANE PHILOSOPHY</h3>
+          <h2 className="about-title">
+            Where every grain<br/>tells a <span className="gold-text">golden story.</span>
+          </h2> 
+          
+          <hr className="divider" />
+          
+          <p className="about-desc">
+            Unlike a standard restaurant, Saffron Lane begins with the origin of the ingredient. Each dish walks the guest down a quiet lane — from the saffron fields of Kashmir to the sun-warmed valleys of the Mediterranean.
+          </p>
+          <p className="about-desc">
+            We practise <span className="highlight-text">ELEVATED VEGETARIANISM</span> — wood-fire, slow ferments, and modern technique that give vegetables the depth usually reserved for far heavier plates.
+          </p>
+          <p className="about-desc">
+            The "Lane" in our name is a promise: every grain, every spice, is sourced direct-from-farmer, sustainably, and with reverence.
+          </p>
+
+          <hr className="divider" />
+
+          {/* Stats Row */}
+          <div className="about-stats">
+            <div className="stat-item">
+              <h4>100%</h4>
+              <p>PURE VEGETARIAN</p>
+            </div>
+            <div className="stat-item">
+              <h4>24</h4>
+              <p>SEATS NIGHTLY</p>
+            </div>
+            <div className="stat-item">
+              <h4>12</h4>
+              <p>YEARS OPEN</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

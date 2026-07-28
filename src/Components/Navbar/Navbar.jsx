@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import logo from '../../assets/logo.png'
-import menu_icon from '../../assets/menu-icon.png'
-import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll' // 1. Added animateScroll
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
@@ -25,103 +24,72 @@ const Navbar = () => {
   };
 
   const handleSectionClick = (sectionTarget) => {
+    setMobilemenu(false); // Close menu when item clicked on mobile
     if (location.pathname !== '/') {
       navigate('/', { state: { targetSection: sectionTarget } });
     }
   };
 
-  // Dedicated function for logo click
   const handleLogoClick = (e) => {
+    setMobilemenu(false);
     if (location.pathname === '/') {
-      // On home page: smooth scroll to top (hero section)
       e.preventDefault();
-      scroll.scrollToTop({
-        duration: 500,
-        smooth: 'easeInOutQuart',
-      });
+      scroll.scrollToTop({ duration: 500, smooth: 'easeInOutQuart' });
     } else {
-      // On another page: navigate to home with 'hero' target
       handleSectionClick('hero');
     }
   };
 
   return (
-    <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
-      {/* 2. Connected handleLogoClick here */}
-      <Link to="/" onClick={handleLogoClick}>
-        <img src={logo} alt="Saffron Lane Logo" className="logo" />
-      </Link>
+    <nav className={sticky ? 'dark-nav' : ''}>
+      <div className="nav-left-wrapper">
+        {/* Hamburger icon placed on the LEFT */}
+        <div className={`hamburger-icon ${mobilemenu ? 'active' : ''}`} onClick={togglemenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-      <ul className={mobilemenu ? '' : 'hide-mobile-menu'}>
+        {/* Brand Logo & Title */}
+        <Link to="/" onClick={handleLogoClick} className="nav-brand">
+          <img src={logo} alt="Saffron Lane Logo" className="logo-small" />
+          <span className="brand-title">SAFFRON LANE</span>
+        </Link>
+      </div>
+
+      <ul className={mobilemenu ? 'show-mobile-menu' : 'hide-mobile-menu'}>
         <li>
-          <ScrollLink 
-            to="hero" 
-            smooth={true} 
-            offset={0} 
-            duration={500}
-            onClick={() => handleSectionClick('hero')}
-          >
-            Home
+          <ScrollLink to="hero" smooth={true} offset={0} duration={500} onClick={() => handleSectionClick('hero')}>
+            HOME
           </ScrollLink>
         </li>
         <li>
-          <ScrollLink 
-            to="programs" 
-            smooth={true} 
-            offset={-260} 
-            duration={500}
-            onClick={() => handleSectionClick('programs')}
-          >
-            Program
+          <ScrollLink to="programs" smooth={true} offset={-100} duration={500} onClick={() => handleSectionClick('programs')}>
+            OFFERINGS
           </ScrollLink>
         </li>
         <li>
-          <ScrollLink 
-            to="about" 
-            smooth={true} 
-            offset={-150} 
-            duration={500}
-            onClick={() => handleSectionClick('about')}
-          >
-            About us
+          <ScrollLink to="about" smooth={true} offset={-100} duration={500} onClick={() => handleSectionClick('about')}>
+            PHILOSOPHY
           </ScrollLink>
         </li>
         <li>
-          <ScrollLink 
-            to="campus" 
-            smooth={true} 
-            offset={-260} 
-            duration={500}
-            onClick={() => handleSectionClick('campus')}
-          >
-            Campus
+          <ScrollLink to="explore-more" smooth={true} offset={-100} duration={500} onClick={() => navigate('/explore-more')}>
+            MENU
           </ScrollLink>
         </li>
         <li>
-          <ScrollLink 
-            to="testimonials" 
-            smooth={true} 
-            offset={-260} 
-            duration={500}
-            onClick={() => handleSectionClick('testimonials')}
-          >
-            Testimonials
+          <ScrollLink to="campus" smooth={true} offset={-100} duration={500} onClick={() => handleSectionClick('campus')}>
+            GALLERY
           </ScrollLink>
         </li>
         <li>
-          <ScrollLink 
-            to="contact" 
-            smooth={true} 
-            offset={-260} 
-            duration={500} 
-            className="btn"
-            onClick={() => handleSectionClick('contact')}
-          >
-            Contact us
-          </ScrollLink>
+          <Link to="/contact" onClick={() => setMobilemenu(false)} className="nav-link-sign">SIGN IN</Link>
+        </li>
+        <li>
+          <Link to="/reservation" onClick={() => setMobilemenu(false)} className="btn-reserve-nav">RESERVE</Link>
         </li>
       </ul>
-      <img src={menu_icon} alt="Menu Icon" className="menu-icon" onClick={togglemenu} />
     </nav>
   )
 }
