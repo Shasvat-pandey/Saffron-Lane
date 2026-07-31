@@ -1,106 +1,235 @@
-/* Page Wrapper - Covers 100% of screen width with #f3bc69 background */
-.explore-more-page {
-    width: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;1,300&display=swap');
+
+.menu-page {
+    background-color: #0f0a06; /* Core dark espresso background */
+    color: #f7f3ed;
     min-height: 100vh;
-    background-color: #eac48a;
-    margin: 0;
-    padding: 0;
-}
-
-/* Navbar targeting */
-.navbar {
     width: 100%;
-    background-color: #f3bc69;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
 }
 
-/* Main Container - Keeps content centered within 1200px */
-.explore-more.container {
-    padding-top: 100px; /* Prevents fixed navbar from overlapping content */
-    padding-bottom: 5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #eac48a;
-}
-
-h2 {
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.border {
-    border: 1px solid #797979;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    background-color: #fff8dc;
-    border-radius: 8px;
-}
-
-/* Front view image */
-.explore-more.container img {
-    display: block;
-    margin: 1rem auto;
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* Gallery layout */
-.explore-more.container .gallery {
+/* ---------------- Hero Section ---------------- */
+.menu-hero {
+    width: 100%;
+    min-height: 80vh;
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
-}
-
-.explore-more.container .gallery .gallery-item {
-    flex: 0 1 calc(25% - 0.75rem);
+    justify-content: center;
     text-align: center;
+    background-size: cover;
+    background-position: center;
+    padding: 120px 20px 60px;
+    border-bottom: none; /* Removes the harsh full-width line */
+}
+.menu-subtitle {
+    font-family: 'Cinzel', serif;
+    color: #c9933b;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
 }
 
-.explore-more.container .gallery .gallery-item img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    display: block;
+.menu-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #f7f3ed;
+    margin-bottom: 30px;
+}
+
+.menu-title-gold {
+    font-style: italic;
+    color: #f9a200; /* Richer gold for the italicized text */
+}
+
+.menu-hero-desc {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    color: #a09d98;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* ---------------- Category Navigation ---------------- */
+.menu-nav-container {
+    width: 90%;
+    max-width: 900px; /* Constrains the width so the line doesn't hit the edges */
+    margin: 0 auto; /* Centers the container and the line */
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px 20px;
+    border-top: 1px solid rgba(201, 147, 59, 0.2); /* Creates the elegant centered line */
+    background-color: transparent; /* Removes the boxy background to blend seamlessly */
+}
+
+.menu-categories {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-categories li {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #857f78;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding-bottom: 5px;
+}
+
+.menu-categories li:hover,
+.menu-categories li.active {
+    color: #f9a200;
+}
+
+/* ---------------- Menu Items Grid ---------------- */
+.menu-content-container {
+    max-width: 1000px;
     margin: 0 auto;
-    border-radius: 8px;
+    padding: 60px 20px 80px;
 }
 
-.explore-more.container .gallery .gallery-item h1 {
-    font-size: 1rem;
-    margin: 0.5rem 0 0;
-    color: #333;
+.menu-category-desc {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #c9933b;
+    margin-bottom: 60px;
 }
 
-/* ------------ Media Queries ------------------*/
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns for desktop */
+    column-gap: 80px;
+    row-gap: 50px;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* The dotted line effect */
+.menu-item-header {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.menu-item-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #f7f3ed;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.menu-item-dots {
+    flex-grow: 1;
+    border-bottom: 1px dashed rgba(201, 147, 59, 0.25);
+    margin: 0 15px 6px 15px;
+}
+
+.menu-item-price {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #f9a200;
+    margin: 0;
+}
+
+.menu-item-desc {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: #a09d98;
+    margin: 0;
+    max-width: 90%;
+}
+
+/* ---------------- Dietary & Actions Section ---------------- */
+.menu-footer-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px 100px;
+    text-align: center;
+    border-top: 1px solid rgba(201, 147, 59, 0.1);
+}
+
+.dietary-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #f9a200;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.dietary-desc {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #a09d98;
+    margin-bottom: 40px;
+}
+
+.menu-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* ---------------- Media Queries ---------------- */
+@media (max-width: 900px) {
+    .menu-title {
+        font-size: 48px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr; /* Stacks to 1 column on tablets/phones */
+        row-gap: 40px;
+    }
+
+    .menu-categories {
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
 
 @media (max-width: 600px) {
-    .footer {
-        display: block;
-        text-align: center;
+    .menu-title {
+        font-size: 36px;
     }
-
-    .footer ul li {
-        margin: 10px;
+    .menu-actions {
+        flex-direction: column;
     }
-
-    .footer ul {
-        margin-top: 10px;
+    .menu-actions button {
+        width: 100%;
     }
-
-    .explore-more.container .gallery .gallery-item {
-        flex: 0 1 48%;
-        margin-bottom: 10px;
+    .menu-item-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .menu-item-dots {
+        display: none; /* Hide dots on very small screens for cleaner wrapping */
+    }
+    .menu-item-title {
+        white-space: normal;
+        margin-bottom: 4px;
     }
 }

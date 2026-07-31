@@ -7,7 +7,7 @@ import gallery_4 from '../../Assets/gallery-4.jpg'
 
 const Campus = () => {
   return (
-    <div className='campus'>
+    <div className='campus' id='campus'>
       <div className="gallery">
         <img src={gallery_1} alt="Gallery Image 1" />
         <img src={gallery_2} alt="Gallery Image 2" />

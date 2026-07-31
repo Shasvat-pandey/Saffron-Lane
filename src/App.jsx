@@ -8,10 +8,10 @@ import Title from "./Components/Title/Title.jsx"
 import About from "./Components/About/About.jsx"
 import Campus from "./Components/Campus/Campus.jsx"
 import Testimonials from "./Components/Testimonials/Testimonials.jsx"
-import Contact from "./Components/Contact/Contact.jsx"
 import Footer from "./Components/Footer/Footer.jsx"
 import ExploreMore from "./Components/explore-more/ExploreMore.jsx"
-import Reservation from './components/Contact/Reservation.jsx';
+import Contact from "./Components/Contact/Contact.jsx"
+import Reservation from './Components/Contact/Reservation.jsx';
 import WriteToUs from './Components/Contact/writetous.jsx';
 
 const HomePage = ({ playerState, setPlayerState }) => {
@@ -64,6 +64,7 @@ const App = () => {
         <Route path="/explore-more" element={<ExploreMore />} />
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/write-to-us" element={<WriteToUs />} />
+        <Route path="/contact" element={<WriteToUs />} />
       </Routes>
     </Router>
   )

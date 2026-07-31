@@ -6,7 +6,7 @@ import program_3 from '../../assets/program-3.jpg'
 
 const Programs = () => {
   return (
-    <div className='programs'>
+    <div className='programs' id='programs'>
       
       {/* Card 1 */}
       <div className="program-card">

@@ -9,6 +9,7 @@ const Hero = () => {
   return (
     <div 
       className='hero' 
+      id='hero'
       style={{ '--bg-img': `url(${heroBg})` }}
     > 
       <div className='hero-text'>
@@ -22,7 +23,7 @@ const Hero = () => {
         </p>
         
         <div className="hero-cta-group">
-          <button className='btn-gold' onClick={() => navigate('/contact')}>
+          <button className='btn-gold' onClick={() => navigate('/reservation')}>
             RESERVE A TABLE
           </button>
           <button className='btn-outline-gold' onClick={() => navigate('/explore-more')}>

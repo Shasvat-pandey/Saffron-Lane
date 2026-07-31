@@ -5,7 +5,7 @@ import about_video from '../../assets/Restro-video.mp4'
 
 const About = () => {
   return (
-    <div className="about-wrapper">
+    <div className="about-wrapper" id="about">
       <div className='about-section'>
         
         {/* Left Media Column */}

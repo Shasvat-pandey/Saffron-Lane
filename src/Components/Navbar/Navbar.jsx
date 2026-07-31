@@ -86,9 +86,11 @@ const Navbar = () => {
         <li>
           <Link to="/contact" onClick={() => setMobilemenu(false)} className="nav-link-sign">SIGN IN</Link>
         </li>
+        {location.pathname !== '/reservation' && (
         <li>
           <Link to="/reservation" onClick={() => setMobilemenu(false)} className="btn-reserve-nav">RESERVE</Link>
         </li>
+        )}
       </ul>
     </nav>
   )
