@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './ExploreMore.css'
-import Navbar from '../Navbar/Navbar.jsx'
-import Footer from '../Footer/Footer.jsx'
 
 // Import the main hero image used on your home page here:
 import hero_img from '../../assets/hero.jpg' // <-- Change '.png' to '.jpg' if your hero image is a JPG
@@ -39,7 +37,6 @@ const ExploreMore = () => {
 
   return (
     <div className="menu-page">
-      <Navbar />
       
       {/* ---------------- Hero Section (Now using the home page hero image) ---------------- */}
       <div className="menu-hero" style={{ backgroundImage: `linear-gradient(to bottom, rgba(10, 7, 4, 0.8), rgba(15, 10, 6, 1)), url(${hero_img})` }}>
@@ -106,7 +103,6 @@ const ExploreMore = () => {
         </div>
       </div>
 
-      <Footer />
     </div>
   )
 }

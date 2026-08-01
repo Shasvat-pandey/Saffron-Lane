@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Campus.css'
 import gallery_1 from '../../Assets/gallery-1.jpg'
 import gallery_2 from '../../Assets/gallery-2.jpg'
@@ -6,6 +7,7 @@ import gallery_3 from '../../Assets/gallery-3.jpg'
 import gallery_4 from '../../Assets/gallery-4.jpg'
 
 const Campus = () => {
+  const navigate = useNavigate();
   return (
     <div className='campus' id='campus'>
       <div className="gallery">
@@ -16,7 +18,7 @@ const Campus = () => {
       </div>
       
       {/* Updated button to match the luxury outline style from the image */}
-      <button className='btn-outline-gold-menu'>
+      <button className='btn-outline-gold-menu' onClick={() => navigate('/explore-more')}>
         SEE THE FULL MENU
       </button>
     </div>

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Reservation.css'
-import Navbar from '../Navbar/Navbar'
-import Footer from '../Footer/Footer'
 
 const Reservation = () => {
   const navigate = useNavigate();
@@ -20,8 +18,6 @@ const Reservation = () => {
   };
 
   return (
-    <>
-    <Navbar/>
       <div className='reservation-section'>
         <div className="res-header">
           <span className="res-subtitle">RESERVATIONS</span>
@@ -86,8 +82,6 @@ const Reservation = () => {
           </form>
         </div>
       </div>
-      <Footer/>
-    </>
   )
 }
 

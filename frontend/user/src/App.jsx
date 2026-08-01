@@ -13,6 +13,17 @@ import ExploreMore from "./Components/explore-more/ExploreMore.jsx"
 import Contact from "./Components/Contact/Contact.jsx"
 import Reservation from './Components/Contact/Reservation.jsx';
 import WriteToUs from './Components/Contact/writetous.jsx';
+import Auth from './Components/Auth/Auth';
+import Profile from './Components/Auth/Profile';
+import ScrollToTop from "./Components/ScrollToTop.jsx"
+
+const Layout = ({ children }) => (
+  <>
+    <Navbar />
+    {children}
+    <Footer />
+  </>
+);
 
 const HomePage = ({ playerState, setPlayerState }) => {
   const location = useLocation();
@@ -37,7 +48,6 @@ const HomePage = ({ playerState, setPlayerState }) => {
 
   return (
     <div>
-      <Navbar />
       <Hero/>
       <div className="container">
         <Title subTitle='Our Offering' title='What We Serve'/>
@@ -48,7 +58,6 @@ const HomePage = ({ playerState, setPlayerState }) => {
         <Title subTitle='Testimonials' title='What People Says'/>
         <Testimonials/>
         <Contact/>
-        <Footer/>
       </div>
     </div>
   )
@@ -59,12 +68,15 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop/>
       <Routes>
-        <Route path="/" element={<HomePage playerState={playerState} setPlayerState={setPlayerState} />} />
-        <Route path="/explore-more" element={<ExploreMore />} />
-        <Route path="/reservation" element={<Reservation />} />
-        <Route path="/write-to-us" element={<WriteToUs />} />
-        <Route path="/contact" element={<WriteToUs />} />
+        <Route path="/" element={<Layout><HomePage playerState={playerState} setPlayerState={setPlayerState} /></Layout>} />
+        <Route path="/explore-more" element={<Layout><ExploreMore /></Layout>} />
+        <Route path="/reservation" element={<Layout><Reservation /></Layout>} />
+        <Route path="/write-to-us" element={<Layout><WriteToUs /></Layout>} />
+        <Route path="/contact" element={<Layout><WriteToUs /></Layout>} />
+        <Route path="/auth" element={<Layout><Auth /></Layout>} />
+        <Route path="/profile" element={<Layout><Profile /></Layout>} />
       </Routes>
     </Router>
   )

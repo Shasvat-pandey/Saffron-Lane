@@ -141,6 +141,90 @@ nav ul li span:hover {
     transform: translateY(-8px) rotate(-45deg);
 }
 
+/* ---------------- Profile Container & Dropdown ---------------- */
+.nav-profile-container {
+    position: relative;
+    display: inline-block;
+    padding: 5px 0; /* Creates an invisible bridge to keep dropdown open on hover */
+}
+
+.nav-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid rgba(243, 188, 105, 0.5);
+    color: #f3bc69 !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 18px !important;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-profile-container:hover .nav-avatar {
+    background: rgba(243, 188, 105, 0.1);
+    border-color: #f3bc69;
+}
+
+/* The Dropdown Box */
+.nav-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translateX(50%); /* Centers the dropdown right below the avatar */
+    background: #0f0a06; /* Solid dark background */
+    border: 1px solid rgba(243, 188, 105, 0.2);
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    padding: 8px 0;
+}
+
+/* Dropdown Links */
+.nav-dropdown a, 
+.nav-dropdown span {
+    font-family: 'Cinzel', serif;
+    font-size: 10px !important;
+    color: #d8d8d8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 12px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.nav-dropdown a:hover, 
+.nav-dropdown span:hover {
+    background: rgba(243, 188, 105, 0.1);
+    color: #f9a200;
+}
+
+/* Mobile adjustments for dropdown */
+@media (max-width: 650px) {
+    .nav-dropdown {
+        position: relative;
+        top: 0;
+        right: 0;
+        transform: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        align-items: flex-start;
+        padding-left: 10px;
+    }
+    .nav-dropdown a, .nav-dropdown span {
+        text-align: left;
+        padding: 10px 0;
+    }
+}
+
 /* ------------ Tablet Specific Sizing (1024px to 651px) ------------------*/
 @media (max-width: 1024px) and (min-width: 651px) {
     nav {
