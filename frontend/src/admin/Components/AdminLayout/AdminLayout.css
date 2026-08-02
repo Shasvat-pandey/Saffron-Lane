@@ -1,0 +1,135 @@
+/* src/admin/Components/AdminLayout/AdminLayout.css */
+
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #0a0704;
+    color: #f7f3ed;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.admin-sidebar {
+    width: 250px;
+    background-color: #0f0a06;
+    border-right: 1px solid rgba(201, 147, 59, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    flex-shrink: 0;
+}
+
+.admin-brand {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: #f7f3ed;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.admin-brand .star {
+    color: #c9933b;
+}
+
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.admin-nav-link,
+.logout-btn {
+    padding: 15px 30px;
+    color: #a09d98;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    font-family: 'Cinzel', serif;
+}
+
+.admin-nav-link:hover,
+.admin-nav-link.active,
+.logout-btn:hover {
+    background-color: rgba(201, 147, 59, 0.05);
+    color: #c9933b;
+    border-left: 3px solid #c9933b;
+}
+
+.logout-btn {
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    margin-top: auto; 
+}
+
+.admin-main {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #0a0704 0%, #110b06 100%);
+}
+
+/* Global Admin Buttons */
+.btn-gold,
+.btn-outline-gold {
+    border-radius: 999px;
+    border: 1px solid rgba(201, 147, 59, 0.85);
+    color: #f7f3ed;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.btn-gold {
+    background: #c9933b;
+    padding: 12px 24px;
+}
+
+.btn-gold:hover {
+    background: #b18332;
+}
+
+.btn-outline-gold {
+    background: transparent;
+    padding: 10px 18px;
+}
+
+.btn-outline-gold:hover {
+    background: rgba(201, 147, 59, 0.12);
+}
+
+/* Sidebar Media Queries */
+@media (max-width: 900px) {
+    .admin-container {
+        flex-direction: column;
+    }
+    .admin-sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 18px 0;
+    }
+    .admin-nav {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .admin-nav-link,
+    .logout-btn {
+        width: auto;
+        margin: 4px;
+    }
+    .admin-main {
+        padding: 24px;
+    }
+}

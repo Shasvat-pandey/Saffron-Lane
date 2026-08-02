@@ -1,0 +1,110 @@
+/* src/admin/Components/Settings/Settings.css */
+
+.settings-card {
+    background-color: transparent;
+    border: 1px solid rgba(201, 147, 59, 0.2);
+    padding: 40px;
+    max-width: 600px;
+}
+
+.settings-section-title {
+    font-family: 'Cinzel', serif;
+    color: #f9a200;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.settings-group {
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-group label {
+    font-family: 'Cinzel', serif;
+    color: #a09d98;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.label-sub {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #857f78;
+}
+
+/* Inputs with only bottom borders */
+.settings-group input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(201, 147, 59, 0.2);
+    color: #f7f3ed;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    padding: 10px 0;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.settings-group input:focus {
+    border-bottom: 1px solid #f9a200;
+}
+
+/* Dark mode fix for the HTML time picker clock icon */
+.settings-group input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(70%) sepia(40%) saturate(600%) hue-rotate(350deg) brightness(90%) contrast(90%);
+    cursor: pointer;
+}
+
+/* Textarea with full border */
+.settings-group textarea {
+    background: transparent;
+    border: 1px solid rgba(201, 147, 59, 0.2);
+    color: #f7f3ed;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    padding: 15px;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+    margin-top: 5px;
+}
+
+.settings-group textarea:focus {
+    border: 1px solid #f9a200;
+}
+
+/* Square Save Button matching the image */
+.settings-save-btn {
+    background-color: #f9a200;
+    color: #0f0a06;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.settings-save-btn:hover {
+    background-color: #e09200;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .settings-card {
+        padding: 25px 20px;
+    }
+}

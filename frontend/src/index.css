@@ -6,11 +6,10 @@
   font-family: "Outfit", sans-serif;
 }
 
-/* Global anti-overflow rules to keep content locked inside the screen */
 html, body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden; /* Prevents any element from creating right-side pink gaps or scrolling */
+  overflow-x: hidden;
   background-color: #110803;
 }
 
@@ -29,7 +28,7 @@ a {
   border-radius: 30px;
   cursor: pointer;
   border: 0;
-  outline: 0; 
+  outline: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -39,9 +38,6 @@ a {
   width: 20px;
   margin-left: 10px;
 }
-
-
-/* ------------ Media Query ------------------*/
 
 @media (max-width: 1200px) {
   .btn {
